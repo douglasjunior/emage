@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin'); // eslint-disable-li
 
 module.exports = {
     entry: ['babel-polyfill', './src/index.js'],
+    target: 'electron-main',
     plugins: [
         new CleanWebpackPlugin(['dist/**/*']),
         new HtmlWebpackPlugin({

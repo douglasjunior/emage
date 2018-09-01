@@ -75,14 +75,7 @@
     "react/no-unused-state": "warn",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "no-console": [
-      "error",
-      {
-        "allow": [
-          "warn"
-        ]
-      }
-    ],
+    "no-console": "warn",
     "import/no-extraneous-dependencies": "off"
   }
 }
