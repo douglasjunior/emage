@@ -21,7 +21,7 @@ const CheckboxGroupGrid = props => {
         >
             <Row>
                 {options.map(opt => (
-                    <Col {...grid}>
+                    <Col {...grid} key={opt.value}>
                         <Checkbox value={opt.value}>{opt.label}</Checkbox>
                     </Col>
                 ))}

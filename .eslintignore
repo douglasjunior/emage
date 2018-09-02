@@ -1,1 +1,5 @@
 dist/
+dll/
+out/
+app/node_modules/
+app/main.prod.js

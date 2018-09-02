@@ -6,6 +6,8 @@ import Icon from 'antd/lib/icon';
 import Layout from 'antd/lib/layout';
 import LocaleProvider from 'antd/lib/locale-provider';
 import Row from 'antd/lib/row';
+import Spin from 'antd/lib/spin';
+import Table from 'antd/lib/table';
 import Upload from 'antd/lib/upload';
 
 module.exports = {
@@ -17,5 +19,7 @@ module.exports = {
     Layout,
     LocaleProvider,
     Row,
+    Spin,
+    Table,
     Upload,
 };

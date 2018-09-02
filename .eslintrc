@@ -10,7 +10,8 @@
   },
   "globals": {
     "document": false,
-    "window": false
+    "window": false,
+    "webview": false
   },
   "rules": {
     "indent": [
@@ -52,6 +53,10 @@
         "args": "none"
       }
     ],
+    "no-console": "warn",
+    "arrow-body-style": "off",
+    "react/no-multi-comp": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/require-default-props": "warn",
     "react/prop-types": "warn",
     "react/no-string-refs": "warn",
@@ -75,7 +80,6 @@
     "react/no-unused-state": "warn",
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "no-console": "warn",
     "import/no-extraneous-dependencies": "off"
   }
 }

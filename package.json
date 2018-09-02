@@ -3,21 +3,7 @@
   "productName": "E-Mage",
   "version": "1.0.0",
   "description": "From developers to developers: a tool to help with image optimization.",
-  "main": "app/index.js",
   "private": true,
-  "scripts": {
-    "start": "run-p webpack forge:start",
-    "build": "run-s webpack:build forge:package",
-    "forge:start": "electron-forge start",
-    "forge:package": "electron-forge package",
-    "make:mac": "electron-forge make --platform=darwin",
-    "make:linux": "electron-forge make --platform=linux --arch=ia32,x64",
-    "make:windows": "electron-forge make --platform=win32 --arch=ia32,x64",
-    "webpack": "webpack-dev-server --config webpack.dev.js",
-    "webpack:build": "webpack --progress --config webpack.prod.js",
-    "publish": "electron-forge publish",
-    "lint": "eslint . --cache --color"
-  },
   "keywords": [
     "image-optimization",
     "electron",
@@ -34,70 +20,84 @@
     "url": "https://github.com/douglasjunior/emage.git"
   },
   "license": "MIT",
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": [
-          "wix"
-        ],
-        "darwin": [
-          "dmg"
-        ],
-        "linux": [
-          "deb",
-          "rpm"
-        ]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn",
-        "asar": true,
-        "arch": "all",
-        "ignore": [
-          ".vscode",
-          ".cache",
-          "src",
-          "template",
-          "out",
-          "screenshot"
-        ]
-      },
-      "electronWinstallerConfig": {
-        "name": "E-Mage"
-      },
-      "electronWixMSIConfig": {
-        "name": "E-Mage",
-        "appUserModelId": "me.douglasjunior.emage",
-        "manufacturer": "E-Mage",
-        "ui": {
-          "enabled": true,
-          "chooseDirectory": true
-        }
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "douglasjunior",
-        "name": "emage"
-      },
-      "windowsStoreConfig": {
-        "packageName": "me.douglasjunior.emage",
-        "name": "E-Mage"
-      }
-    }
-  },
   "husky": {
     "hooks": {
       "pre-push": "npm run lint"
     }
   },
-  "dependencies": {
-    "electron-compile": "6.4.3",
-    "electron-squirrel-startup": "1.0.0",
-    "react-hot-loader": "4.3.5"
+  "scripts": {
+    "build": "run-p build-main build-renderer",
+    "build-dll": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.dev.dll.js --colors",
+    "build-main": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.main.prod.js --colors",
+    "build-renderer": "cross-env NODE_ENV=production node --trace-warnings -r babel-register ./node_modules/webpack/bin/webpack --config webpack.config.renderer.prod.js --colors",
+    "dev": "cross-env START_HOT=1 node -r babel-register ./internals/scripts/CheckPortInUse.js && cross-env START_HOT=1 yarn start-renderer-dev",
+    "electron-rebuild": "electron-rebuild --parallel --force --types prod,dev,optional --module-dir app",
+    "package": "yarn build && electron-builder build --publish never",
+    "package-all": "yarn build && electron-builder build -mwl",
+    "package-linux": "yarn build && electron-builder build --linux",
+    "package-win": "yarn build && electron-builder build --win --x64",
+    "postinstall": "node -r babel-register internals/scripts/CheckNativeDep.js && yarn build-dll && electron-builder install-app-deps package.json",
+    "prestart": "yarn build",
+    "start": "cross-env NODE_ENV=production electron ./app/",
+    "start-main-dev": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./app/main.dev.js",
+    "start-renderer-dev": "cross-env NODE_ENV=development node --trace-warnings -r babel-register ./node_modules/webpack-dev-server/bin/webpack-dev-server --config webpack.config.renderer.dev.js",
+    "lint": "eslint . --cache --color"
   },
-  "devDependencies": {
+  "build": {
+    "productName": "ElectronReact",
+    "appId": "org.develar.ElectronReact",
+    "files": [
+      "dist/",
+      "node_modules/",
+      "app.html",
+      "main.prod.js",
+      "main.prod.js.map",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Development"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
+  },
+  "dependencies": {
     "antd": "3.8.4",
     "axios": "0.18.0",
+    "bluebird": "3.5.1",
+    "electron-debug": "2.0.0",
+    "prop-types": "15.6.2",
+    "react": "16.4.2",
+    "react-dom": "16.4.2",
+    "react-hot-loader": "4.3.5",
+    "react-router-dom": "4.3.1",
+    "source-map-support": "0.5.9"
+  },
+  "devDependencies": {
     "babel-core": "6.26.3",
     "babel-eslint": "9.0.0",
     "babel-loader": "7.1.5",
@@ -107,15 +107,15 @@
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-2": "6.24.1",
-    "bluebird": "3.5.1",
+    "chalk": "^2.4.1",
     "clean-webpack-plugin": "0.1.19",
-    "compress-images": "1.4.0",
     "cross-env": "5.2.0",
     "css-loader": "1.0.0",
+    "detect-port": "^1.2.3",
+    "electron": "2.0.6",
+    "electron-builder": "20.26.0",
     "electron-devtools-installer": "2.2.4",
-    "electron-forge": "5.2.2",
-    "electron-prebuilt-compile": "2.0.7",
-    "electron-wix-msi": "1.3.0",
+    "electron-rebuild": "1.8.2",
     "eslint": "5.5.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-loader": "2.1.0",
@@ -131,10 +131,6 @@
     "node-sass": "4.9.3",
     "npm-run-all": "4.1.3",
     "optimize-css-assets-webpack-plugin": "5.0.0",
-    "prop-types": "15.6.2",
-    "react": "16.4.2",
-    "react-dom": "16.4.2",
-    "react-router-dom": "4.3.1",
     "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
     "uglifyjs-webpack-plugin": "1.3.0",
