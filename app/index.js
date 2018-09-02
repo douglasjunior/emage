@@ -1,3 +1,5 @@
+require('hazardous');
+
 window.Promise = require('bluebird');
 window.axios = require('axios').default;
 window.moment = require('moment-timezone');
@@ -11,9 +13,6 @@ document.addEventListener('dragover', e => {
     e.preventDefault();
     e.stopPropagation();
 });
-// webview.addEventListener('dragover', e => {
-//     e.preventDefault();
-// });
 
 const React = require('react');
 const ReactDOM = require('react-dom');
