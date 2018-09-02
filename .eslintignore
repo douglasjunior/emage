@@ -1,5 +1,7 @@
-dist/
+release/
 dll/
 out/
+
+app/dist/
 app/node_modules/
 app/main.prod.js

@@ -44,8 +44,8 @@
     "lint": "eslint . --cache --color"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.develar.ElectronReact",
+    "productName": "E-Mage",
+    "appId": "me.douglasjunior.emage",
     "files": [
       "dist/",
       "node_modules/",

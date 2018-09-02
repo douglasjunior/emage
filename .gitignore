@@ -1,8 +1,11 @@
 node_modules/
 out/
-dist/
+release/
 dll/
 .eslintcache
 .cache
+
+app/dist/
+app/node_modules/
 app/main.prod.js
 app/main.prod.js.map
