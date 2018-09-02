@@ -1,9 +1,16 @@
 # E-Mage (Electron + Image Optimization + Magic)
 From developers to developers: a cross-platform tool to help with image optimization.
 
+## Features
+
+- JPG: `jpegoptim`, `jpegtran`, `mozjpeg`.
+- PNG: `advpng`, `optipng`, `pngcrush`, `pngout`, `zopfli`.
+- SVG: Soon...
+- GIF: Soon...
+
 ![screenshot](https://github.com/douglasjunior/emage/blob/master/screenshot/screen.png)
 
-# Download
+## Download
 
 [Download](https://github.com/douglasjunior/emage/releases) to your platform.
 
