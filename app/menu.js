@@ -47,7 +47,7 @@ export default class MenuBuilder {
 
     buildDarwinTemplate() {
         const subMenuAbout = {
-            label: 'Electron',
+            label: 'E-Mage',
             submenu: [
                 {
                     label: 'About E-Mage',
@@ -148,29 +148,21 @@ export default class MenuBuilder {
             label: 'Help',
             submenu: [
                 {
-                    label: 'Learn More',
+                    label: 'Repository',
                     click() {
-                        shell.openExternal('http://electron.atom.io');
+                        shell.openExternal('https://github.com/douglasjunior/emage');
                     },
                 },
                 {
-                    label: 'Documentation',
+                    label: 'Developer',
                     click() {
-                        shell.openExternal(
-                            'https://github.com/atom/electron/tree/master/docs#readme',
-                        );
-                    },
-                },
-                {
-                    label: 'Community Discussions',
-                    click() {
-                        shell.openExternal('https://discuss.atom.io/c/electron');
+                        shell.openExternal('https://github.com/douglasjunior');
                     },
                 },
                 {
                     label: 'Search Issues',
                     click() {
-                        shell.openExternal('https://github.com/atom/electron/issues');
+                        shell.openExternal('https://github.com/douglasjunior/emage/issues');
                     },
                 },
             ],
@@ -244,29 +236,21 @@ export default class MenuBuilder {
                 label: 'Help',
                 submenu: [
                     {
-                        label: 'Learn More',
+                        label: 'Repository',
                         click() {
-                            shell.openExternal('http://electron.atom.io');
+                            shell.openExternal('https://github.com/douglasjunior/emage');
                         },
                     },
                     {
-                        label: 'Documentation',
+                        label: 'Developer',
                         click() {
-                            shell.openExternal(
-                                'https://github.com/atom/electron/tree/master/docs#readme',
-                            );
-                        },
-                    },
-                    {
-                        label: 'Community Discussions',
-                        click() {
-                            shell.openExternal('https://discuss.atom.io/c/electron');
+                            shell.openExternal('https://github.com/douglasjunior');
                         },
                     },
                     {
                         label: 'Search Issues',
                         click() {
-                            shell.openExternal('https://github.com/atom/electron/issues');
+                            shell.openExternal('https://github.com/douglasjunior/emage/issues');
                         },
                     },
                 ],
