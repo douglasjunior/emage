@@ -70,7 +70,7 @@ class ColumnSize extends PureComponent {
 
     componentWillUnmount() {
         const { process } = this.props;
-        process.removeListener('finish', this._onEvent);
+        process.removeListener('end', this._onEvent);
     }
 
     _onEvent = (_, size) => {

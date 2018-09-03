@@ -32,7 +32,7 @@ const SVG_OPTIONS = [
 
 ];
 
-const GIT_OPTIONS = [
+const GIF_OPTIONS = [
 
 ];
 
@@ -61,13 +61,12 @@ export default class HomePage extends Component {
             jpgOptions: JPG_OPTIONS.map(o => o.value),
             pngOptions: PNG_OPTIONS.map(o => o.value),
             svgOptions: SVG_OPTIONS.map(o => o.value),
-            gifOptions: GIT_OPTIONS.map(o => o.value),
+            gifOptions: GIF_OPTIONS.map(o => o.value),
             processes: [],
         };
     }
 
     _onUploadChange = file => {
-        console.log(file);
         if (Array.isArray(file)) {
             file.forEach(this._compress);
         } else {
@@ -141,7 +140,7 @@ export default class HomePage extends Component {
                 <Col xs={12}>
                     <h3>GIF</h3>
                     <CheckboxGroupGrid
-                        options={GIT_OPTIONS}
+                        options={GIF_OPTIONS}
                         onChange={this._onGifOptionChange}
                         grid={{ xs: 8 }}
                         value={gifOptions}

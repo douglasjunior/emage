@@ -128,20 +128,13 @@ class Process extends EventEmitter {
     }
 
     _compressImage = algorithm => {
-
-        console.log('file', this.file.path);
-        console.log('dir', this.dir);
-
         return imagemin([this.file.path], this.dir, {
             plugins: [
                 getPlugin(this.file.type, algorithm),
             ],
-        })
-            .then(files => {
-                const { size } = fs.statSync(files[0].path);
-                console.log('new size', size);
-                return size;
-            });
+        }).then(files => {
+            return fs.statSync(files[0].path).size;
+        });
     }
 
     _done = () => {
