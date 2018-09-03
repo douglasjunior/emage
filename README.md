@@ -1,5 +1,14 @@
-# E-Mage (Electron + Image Compression + Magic)
-From developers to developers: a cross-platform tool to help with image compression.
+<center>
+  
+<p align="center">
+<img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" alt="screenshot" width="100" />
+<img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100" /> 
+<p/>
+
+<h1 align="center">E-Mage (Electron + Image Compression + Magic)</h1>
+<p align="center">From developers to developers: a cross-platform tool to help with image compression.<p/>
+
+</center>
 
 > Inspired by [ImageOptim](https://github.com/ImageOptim/ImageOptim) for Mac and created with  the [imagemin](https://github.com/imagemin/imagemin) and their [plugins](https://www.npmjs.com/search?q=keywords:imageminplugin).
 
