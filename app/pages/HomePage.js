@@ -7,6 +7,8 @@ import {
 import CheckboxGroupGrid from '../components/CheckboxGroupGrid';
 import TableProcesses from '../components/TableProcesses';
 import Process from '../utils/Process';
+import { arrayPush } from '../utils/arrays';
+import { isOS } from '../utils/platform';
 
 const { Dragger } = Upload;
 
@@ -30,10 +32,14 @@ const SVG_OPTIONS = [
     { value: 'svgo', label: 'svgo' },
 ];
 
-const GIF_OPTIONS = [
-    { value: 'giflossy', label: 'giflossy' },
-    { value: 'gifsicle', label: 'gifsicle' },
-];
+const supportGiflossy = isOS([
+    { platform: 'darwin' },
+    { platform: 'linux', arch: 'x64' },
+]);
+
+const GIF_OPTIONS = arrayPush({ value: 'gifsicle', label: 'gifsicle' })
+    .arrayPush(supportGiflossy ? { value: 'giflossy', label: 'giflossy' } : null)
+    .toArray();
 
 const getOptions = (fileType, state) => {
     if (/image\/jpg/.test(fileType) || /image\/jpeg/.test(fileType)) {
