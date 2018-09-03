@@ -9,12 +9,14 @@
 <p align="center">From developers to developers: a cross-platform tool to help with image compression.<p/>
 
 </center>
-
-> Inspired by [ImageOptim](https://github.com/ImageOptim/ImageOptim) for Mac and created with  the [imagemin](https://github.com/imagemin/imagemin) and their [plugins](https://www.npmjs.com/search?q=keywords:imageminplugin).
-
-## Screenshot
-
+ 
+<p align="center">
 <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/screen.png" alt="screenshot" width="500" />
+<p/>
+
+<blockquote align="center">
+  Inspired by <a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> for Mac and created with  the <a href="https://github.com/imagemin/imagemin" target="_blank">imagemin</a> and their <a href="https://www.npmjs.com/search?q=keywords:imageminplugin" target="_blank">plugins</a>.
+</blockquote>
 
 ## Features
 
