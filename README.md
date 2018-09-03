@@ -20,10 +20,10 @@
 
 ## Features
 
-- JPG: `jpegoptim`, `jpegtran`, `mozjpeg`.
-- PNG: `advpng`, `optipng`, `pngcrush`, `pngout`, `zopfli`.
-- SVG: `Soon...`
-- GIF: `Soon...`
+- JPG: `jpegoptim`, `jpegtran` and `mozjpeg`.
+- PNG: `advpng`, `optipng`, `pngcrush`, `pngout` and `zopfli`.
+- SVG: `svgo`.
+- GIF: `giflossy` and `gifsicle`.
 
 ## Download
 
