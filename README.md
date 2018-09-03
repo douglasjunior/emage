@@ -1,7 +1,7 @@
 # E-Mage (Electron + Image Optimization + Magic)
 From developers to developers: a cross-platform tool to help with image optimization.
 
-<img src="https://github.com/douglasjunior/emage/blob/master/screenshot/screen.png" alt="screenshot" width="500" />
+<img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/screen.png" alt="screenshot" width="500" />
 
 ## Features
 
