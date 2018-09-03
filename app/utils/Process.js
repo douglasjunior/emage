@@ -13,6 +13,11 @@ import imageminJpegoptim from 'imagemin-jpegoptim';
 import imageminJpegtran from 'imagemin-jpegtran';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 
+import imageminSvgo from 'imagemin-svgo';
+
+import imageminGiflossy from 'imagemin-giflossy';
+import imageminGifsicle from 'imagemin-gifsicle';
+
 const engineJpg = algorithm => {
     switch (algorithm) {
         case 'jpegoptim':
@@ -56,11 +61,30 @@ const enginePng = algorithm => {
 };
 
 const engineSvg = algorithm => {
-    return null;
+    switch (algorithm) {
+        case 'svgo':
+            return imageminSvgo();
+        default:
+            return null;
+    }
 };
 
 const engineGif = algorithm => {
-    return null;
+    switch (algorithm) {
+        case 'giflossy':
+            return imageminGiflossy({
+                interlaced: true,
+                optimizationLevel: 3,
+                optimize: 3,
+            });
+        case 'gifsicle':
+            return imageminGifsicle({
+                interlaced: true,
+                optimizationLevel: 3,
+            });
+        default:
+            return null;
+    }
 };
 
 const getPlugin = (fileType, algorithm) => {

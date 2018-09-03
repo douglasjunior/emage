@@ -5,7 +5,6 @@ import { Route } from 'react-router-dom';
 import styles from './MainLayout.scss';
 import { Layout } from '../components/antd';
 import HomePage from '../pages/HomePage';
-import AboutPage from '../pages/AboutPage';
 
 export const ROUTES_ITEMS = [
     {
@@ -14,11 +13,6 @@ export const ROUTES_ITEMS = [
         icon: 'home',
         exact: true,
         component: HomePage,
-    }, {
-        to: '/about',
-        text: 'About',
-        icon: 'info-circle-o',
-        component: AboutPage,
     },
 ];
 

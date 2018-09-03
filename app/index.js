@@ -3,7 +3,6 @@ require('hazardous');
 window.Promise = require('bluebird');
 window.axios = require('axios').default;
 window.moment = require('moment-timezone');
-require('moment/locale/pt-br');
 
 document.addEventListener('drop', e => {
     e.preventDefault();

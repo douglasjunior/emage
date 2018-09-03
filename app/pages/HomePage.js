@@ -8,8 +8,6 @@ import CheckboxGroupGrid from '../components/CheckboxGroupGrid';
 import TableProcesses from '../components/TableProcesses';
 import Process from '../utils/Process';
 
-// import styles from './HomePage.scss';
-
 const { Dragger } = Upload;
 
 const ACCEPT_FILES = 'image/png,image/jpg,image/jpeg,image/gif,image/svg,image/svg+xml';
@@ -29,11 +27,12 @@ const PNG_OPTIONS = [
 ];
 
 const SVG_OPTIONS = [
-
+    { value: 'svgo', label: 'svgo' },
 ];
 
 const GIF_OPTIONS = [
-
+    { value: 'giflossy', label: 'giflossy' },
+    { value: 'gifsicle', label: 'gifsicle' },
 ];
 
 const getOptions = (fileType, state) => {
@@ -138,21 +137,21 @@ export default class HomePage extends Component {
                     />
                 </Col>
                 <Col xs={12}>
-                    <h3>GIF</h3>
-                    <CheckboxGroupGrid
-                        options={GIF_OPTIONS}
-                        onChange={this._onGifOptionChange}
-                        grid={{ xs: 8 }}
-                        value={gifOptions}
-                    />
-                </Col>
-                <Col xs={12}>
                     <h3>SVG</h3>
                     <CheckboxGroupGrid
                         options={SVG_OPTIONS}
                         onChange={this._onSvgOptionChange}
                         grid={{ xs: 8 }}
                         value={svgOptions}
+                    />
+                </Col>
+                <Col xs={12}>
+                    <h3>GIF</h3>
+                    <CheckboxGroupGrid
+                        options={GIF_OPTIONS}
+                        onChange={this._onGifOptionChange}
+                        grid={{ xs: 8 }}
+                        value={gifOptions}
                     />
                 </Col>
             </Row>

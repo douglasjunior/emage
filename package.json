@@ -2,10 +2,11 @@
   "name": "emage",
   "productName": "E-Mage",
   "version": "1.0.0",
-  "description": "From developers to developers: a cross-platform tool to help with image optimization.",
+  "description": "From developers to developers: a cross-platform tool to help with image compression.",
   "private": true,
   "keywords": [
     "image-optimization",
+    "image-compression",
     "electron",
     "developer-tools",
     "developer-experience"

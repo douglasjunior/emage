@@ -1,4 +1,3 @@
-import Alert from 'antd/lib/alert';
 import Card from 'antd/lib/card';
 import Col from 'antd/lib/col';
 import Checkbox from 'antd/lib/checkbox';
@@ -8,10 +7,10 @@ import LocaleProvider from 'antd/lib/locale-provider';
 import Row from 'antd/lib/row';
 import Spin from 'antd/lib/spin';
 import Table from 'antd/lib/table';
+import Tooltip from 'antd/lib/tooltip';
 import Upload from 'antd/lib/upload';
 
 module.exports = {
-    Alert,
     Card,
     Col,
     Checkbox,
@@ -21,5 +20,6 @@ module.exports = {
     Row,
     Spin,
     Table,
+    Tooltip,
     Upload,
 };

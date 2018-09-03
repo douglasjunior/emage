@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 
-import { Table, Spin, Icon } from './antd';
+import {
+    Table, Spin, Icon,
+    Tooltip,
+} from './antd';
 
 const { Column } = Table;
 
@@ -187,34 +190,62 @@ export default class TableProcesses extends PureComponent {
             >
                 <Column
                     key="spin"
-                    title=" "
+                    title={(
+                        <Tooltip title="Compressing">
+                            <span>{' '}</span>
+                        </Tooltip>
+                    )}
                     render={this._renderSpin}
                     width="40px"
                 />
                 <Column
                     key="file"
-                    title="File"
+                    title={(
+                        <Tooltip title="File name">
+                            <span>File</span>
+                        </Tooltip>
+                    )}
                     render={this._renderName}
                 />
                 <Column
                     key="orig_size"
-                    title="Original Size"
+                    title={(
+                        <Tooltip title="The size of file before compressing">
+                            <span>Original Size</span>
+                        </Tooltip>
+                    )}
                     render={this._renderOriginalSize}
+                    width="15%"
                 />
                 <Column
                     key="size"
-                    title="Size"
+                    title={(
+                        <Tooltip title="The size of file after compressing">
+                            <span>Size</span>
+                        </Tooltip>
+                    )}
                     render={this._renderSize}
+                    width="15%"
                 />
                 <Column
                     key="save"
-                    title="Save"
+                    title={(
+                        <Tooltip title="Percent saved after compression">
+                            <span>Savings</span>
+                        </Tooltip>
+                    )}
                     render={this._renderSave}
+                    width="10%"
                 />
                 <Column
                     key="executed_tools"
-                    title="Tools"
+                    title={(
+                        <Tooltip title="Tools that have been able to compress the file">
+                            <span>Tools</span>
+                        </Tooltip>
+                    )}
                     render={this._renderTools}
+                    width="20%"
                 />
             </Table>
         );
