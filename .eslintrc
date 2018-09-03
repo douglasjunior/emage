@@ -5,7 +5,8 @@
   ],
   "settings": {
     "import/ignore": [
-      "components/antd.js"
+      ".*\\/antd.js",
+      ".*\\antd.js"
     ]
   },
   "globals": {
