@@ -7,27 +7,26 @@ import styles from './CheckboxGroupGrid.scss';
 
 const { Group: CheckboxGroup } = Checkbox;
 
-const CheckboxGroupGrid = props => {
-    const {
-        options, grid, onChange,
-        defaultValue, value,
-    } = props;
-    return (
-        <CheckboxGroup
-            className={styles.group}
-            value={value}
-            defaultValue={defaultValue}
-            onChange={onChange}
-        >
-            <Row>
-                {options.map(opt => (
+const CheckboxGroupGrid = ({
+    options, grid, onChange,
+    defaultValue, value,
+}) => (
+    <CheckboxGroup
+        className={styles.group}
+        value={value}
+        defaultValue={defaultValue}
+        onChange={onChange}
+    >
+        <Row>
+            {options.length > 0
+                ? options.map(opt => (
                     <Col {...grid} key={opt.value}>
                         <Checkbox value={opt.value}>{opt.label}</Checkbox>
                     </Col>
-                ))}
-            </Row>
-        </CheckboxGroup>
-    );
-};
+                ))
+                : <p>Coming soon</p>}
+        </Row>
+    </CheckboxGroup>
+);
 
 export default CheckboxGroupGrid;
