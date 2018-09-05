@@ -15,11 +15,24 @@ document.addEventListener('dragover', e => {
 
 const React = require('react');
 const ReactDOM = require('react-dom');
+const { AppContainer } = require('react-hot-loader');
 
 require('./styles');
-const App = require('./App').default;
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root'),
-);
+const render = Comp => {
+    const NextApp = require('./App').default;
+    ReactDOM.render(
+        <AppContainer>
+            <NextApp />
+        </AppContainer>,
+        document.getElementById('root'),
+    );
+};
+
+render();
+
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        render();
+    });
+}

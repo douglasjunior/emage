@@ -114,7 +114,7 @@ class ColumnSave extends PureComponent {
     render() {
         const { save } = this.state;
         return (
-            <span>{save.toFixed(1)} %</span>
+            <span>{save.toFixed(1)}%</span>
         );
     }
 

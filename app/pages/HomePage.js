@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
+import styles from './HomePage.scss';
 import {
     Upload, Icon, Card,
     Row, Col,
@@ -9,6 +10,7 @@ import TableProcesses from '../components/TableProcesses';
 import Process from '../utils/Process';
 import { arrayPush } from '../utils/arrays';
 import { isOS } from '../utils/platform';
+import { formatBytes } from '../utils/formatter';
 
 const { Dragger } = Upload;
 
@@ -57,7 +59,7 @@ const getOptions = (fileType, state) => {
     return undefined;
 };
 
-export default class HomePage extends Component {
+export default class HomePage extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -68,7 +70,19 @@ export default class HomePage extends Component {
             svgOptions: SVG_OPTIONS.map(o => o.value),
             gifOptions: GIF_OPTIONS.map(o => o.value),
             processes: [],
+            total: {
+                originalSize: 0,
+                size: 0,
+                savedSum: 0,
+                savedAvg: 0,
+                savedMax: 0,
+            },
         };
+    }
+
+    componentWillUnmount() {
+        const { processes } = this.state;
+        processes.forEach(p => p.removeListener('end', this._updateTotal));
     }
 
     _onUploadChange = file => {
@@ -92,9 +106,11 @@ export default class HomePage extends Component {
             if (!Array.isArray(selectedOptions)) {
                 return null;
             }
+            const process = new Process(file, selectedOptions);
+            process.on('end', this._updateTotal);
             return {
                 processes: [
-                    new Process(file, selectedOptions),
+                    process,
                     ...processes,
                 ],
             };
@@ -115,6 +131,32 @@ export default class HomePage extends Component {
 
     _onSvgOptionChange = checkedValues => {
         this.setState({ svgOptions: checkedValues });
+    }
+
+    _updateTotal = () => {
+        const { processes } = this.state;
+        const total = processes.reduce(
+            (result, process) => {
+                if (!process.isFinished()) {
+                    return result;
+                }
+                const newResult = {
+                    originalSize: result.originalSize + process.getOriginalSize(),
+                    size: result.size + process.getSize(),
+                    savedSum: result.savedSum + process.getSave(),
+                    savedMax: Math.max(result.savedMax, process.getSave()),
+                };
+                newResult.savedAvg = newResult.savedSum / processes.length;
+                return newResult;
+            }, {
+                originalSize: 0,
+                size: 0,
+                savedSum: 0,
+                savedAvg: 0,
+                savedMax: 0,
+            },
+        );
+        this.setState({ total });
     }
 
     _renderOptions = () => {
@@ -164,6 +206,26 @@ export default class HomePage extends Component {
         );
     }
 
+    _renderTotal = () => {
+        const { total } = this.state;
+        const {
+            originalSize, size,
+            savedAvg, savedMax,
+        } = total;
+        if (!originalSize) return null;
+        return (
+            <div className={styles.totalContainer}>
+                <span>
+                    Saved {formatBytes(originalSize - size)} out of {formatBytes(originalSize)}.
+                </span>
+                {' '}
+                <span>
+                    {savedAvg.toFixed(1)}% per file on avarage (up to {savedMax.toFixed(1)}%).
+                </span>
+            </div>
+        );
+    }
+
     render() {
         const { processes } = this.state;
         return (
@@ -185,7 +247,9 @@ export default class HomePage extends Component {
                         <p className="ant-upload-drag-icon">
                             <Icon type="picture" />
                         </p>
-                        <p className="ant-upload-text">Click or drag images to this area to optimize</p>
+                        <p className="ant-upload-text">
+                            Click or drag images to this area to optimize
+                        </p>
                         <p className="ant-upload-hint">
                             Support for a single or bulk upload.
                         </p>
@@ -194,6 +258,7 @@ export default class HomePage extends Component {
                 <Card>
                     <h2>3. See the magic!</h2>
                     <TableProcesses dataSource={processes} />
+                    {this._renderTotal()}
                 </Card>
             </div>
         );

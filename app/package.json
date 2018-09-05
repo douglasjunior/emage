@@ -1,7 +1,7 @@
 {
     "name": "emage",
     "productName": "E-Mage",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "description": "From developers to developers: a cross-platform tool to help with image compression.",
     "main": "./main.prod.js",
     "author": {

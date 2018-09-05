@@ -10,9 +10,6 @@
     ],
     "env": {
       "development": {
-        "plugins": [
-          "react-hot-loader/babel"
-        ],
         "sourceMaps": "both"
       },
       "production": {
