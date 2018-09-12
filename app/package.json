@@ -16,7 +16,7 @@
     "license": "MIT",
     "dependencies": {
         "hazardous": "0.3.0",
-        "imagemin": "6.0.0",
+        "imagemin": "git+https://github.com/douglasjunior/imagemin.git#patch-1",
         "imagemin-advpng": "4.0.0",
         "imagemin-giflossy": "5.1.10",
         "imagemin-gifsicle": "5.2.0",

@@ -18,11 +18,16 @@ import imageminSvgo from 'imagemin-svgo';
 import imageminGiflossy from 'imagemin-giflossy';
 import imageminGifsicle from 'imagemin-gifsicle';
 
+const isLibjpegNotFound = ex => {
+    return /EPIPE/.test(ex.code)
+        || /Library not loaded:.+libjpeg/.test(ex.message);
+};
+
 const engineJpg = algorithm => {
     switch (algorithm) {
         case 'jpegoptim':
             return imageminJpegoptim({
-                progressive: true,
+                progressive: false,
             });
         case 'jpegtran':
             return imageminJpegtran({
@@ -115,7 +120,8 @@ class Process extends EventEmitter {
         this.currentAlgorithm = null;
         this.finishedAlgorithms = [];
         this.finished = false;
-        this.error = null;
+        this.failed = false;
+        this.errors = [];
         Promise.map(algorithms, this._createJob, { concurrency: 1 })
             .then(this._done)
             .catch(this._error)
@@ -134,7 +140,9 @@ class Process extends EventEmitter {
 
     isFinished = () => this.finished;
 
-    getError = () => this.error;
+    isFailed = () => this.failed;
+
+    getErrors = () => this.errors;
 
     getFinishedAlgorithms = () => [...this.finishedAlgorithms];
 
@@ -152,22 +160,38 @@ class Process extends EventEmitter {
     }
 
     _compressImage = algorithm => {
-        return imagemin([this.file.path], this.dir, {
-            plugins: [
-                getPlugin(this.file.type, algorithm),
-            ],
-        }).then(files => {
-            return fs.statSync(files[0].path).size;
-        });
+        const plugin = getPlugin(this.file.type, algorithm);
+        return imagemin(this.file.path, this.dir, {
+            plugins: [plugin],
+        })
+            .then(file => {
+                if (file) {
+                    return fs.statSync(file.path).size;
+                }
+                throw new Error(`Invalid file name "${this.file.path}".`);
+            })
+            .catch(ex => {
+                console.warn(ex);
+                let { message } = ex;
+                if (algorithm === 'jpegoptim' && isLibjpegNotFound(ex)) {
+                    message = 'You probably need to install "libjpeg" on your computer.';
+                }
+                this.errors.push({
+                    algorithm,
+                    message,
+                });
+                this._failed(ex);
+                return this.size;
+            });
     }
 
     _done = () => {
         this.emit('done', this.size);
     }
 
-    _error = ex => {
-        this.error = ex;
-        this.emit('error', ex);
+    _failed = ex => {
+        this.failed = true;
+        this.emit('failed', ex);
     }
 
     _finish = () => {

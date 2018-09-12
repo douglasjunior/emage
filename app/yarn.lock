@@ -1251,9 +1251,9 @@ imagemin-zopfli@5.1.0:
     is-png "^1.0.0"
     zopflipng-bin "^4.0.0"
 
-imagemin@6.0.0:
+"imagemin@git+https://github.com/douglasjunior/imagemin.git#patch-1":
   version "6.0.0"
-  resolved "https://registry.yarnpkg.com/imagemin/-/imagemin-6.0.0.tgz#1ae68c6b867863651a454f882054d9abf7d13b78"
+  resolved "git+https://github.com/douglasjunior/imagemin.git#1bececa58b0b8bed696a800f8f1b9a478797da41"
   dependencies:
     file-type "^8.1.0"
     globby "^8.0.1"

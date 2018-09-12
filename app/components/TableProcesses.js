@@ -2,20 +2,19 @@ import React, { PureComponent } from 'react';
 
 import {
     Table, Spin, Icon,
-    Tooltip,
+    Tooltip, Popover, List,
 } from './antd';
 
 const { Column } = Table;
 
 const IconSpinning = <Icon type="loading" style={{ fontSize: 24 }} spin />;
 const IconDone = <Icon type="check-circle-o" style={{ fontSize: 24, color: 'green' }} />;
-const IconError = <Icon type="close-circle-o" style={{ fontSize: 24, color: 'red' }} />;
 
 class ColumnSpin extends PureComponent {
 
     state = {
         finished: false,
-        error: null,
+        errors: [],
     }
 
     componentDidMount() {
@@ -34,21 +33,46 @@ class ColumnSpin extends PureComponent {
     _onEvent = () => {
         const { process } = this.props;
         this.setState({
-            error: process.getError(),
+            errors: process.getErrors(),
             finished: true,
         });
     }
 
+    _renderErrors = () => {
+        const { errors } = this.state;
+        return (
+            <Popover
+                content={(
+                    <List
+                        rowKey={item => item.algorithm}
+                        dataSource={errors}
+                        renderItem={({ algorithm, message }) => (
+                            <List.Item>
+                                <div>
+                                    <strong>{algorithm}: </strong>
+                                    <span>{message}</span>
+                                </div>
+                            </List.Item>
+                        )}
+                    />
+                )}
+                placement="right"
+            >
+                <Icon type="close-circle-o" style={{ fontSize: 24, color: 'red' }} />
+            </Popover>
+        );
+    };
+
     render() {
-        const { finished, error } = this.state;
+        const { finished, errors } = this.state;
         return (
             <Spin
                 indicator={
-                    error
-                        ? IconError
-                        : finished
-                            ? IconDone
-                            : IconSpinning
+                    finished
+                        ? errors.length
+                            ? this._renderErrors()
+                            : IconDone
+                        : IconSpinning
                 }
                 size="small"
             />
