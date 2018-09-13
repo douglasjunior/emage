@@ -20,10 +20,12 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
-    <a id="skip-to-content" href="#content">Skip to the content.</a>
-
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+      <p align="center">
+        <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" alt="screenshot" width="100" />
+        <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100" /> 
+      <p/>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
