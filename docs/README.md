@@ -1,4 +1,4 @@
-# E-Mage (Electron + Image Compression + Magic)</h1>
+# E-Mage (Electron + Image Compression + Magic)
 From developers to developers: a cross-platform tool to help with image compression.
 
 <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/screen.png" alt="screenshot" width="500" />
