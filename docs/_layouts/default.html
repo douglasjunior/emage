@@ -47,6 +47,15 @@
     .main-content h6 {
       color: #d25100;
     }
+
+    .btn {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .btn span {
+      font-size: 14px;
+      font-weight: normal;
+    }
   </style>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -82,12 +91,8 @@
     <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
     <div id="download-buttons">
-      Loading download links...
-    </div>
 
-    {% if site.github.is_project_page %}
-    <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-    {% endif %}
+    </div>
   </header>
 
   <main id="content" class="main-content" role="main">
@@ -96,7 +101,7 @@
     <footer class="site-footer">
       {% if site.github.is_project_page %}
       <span class="site-footer-owner">
-        <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
+        <a href="{{ site.github.repository_url }}">{{ site.title | default: site.github.repository_name }}</a> is maintained by
         <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
       {% endif %}
     </footer>
@@ -106,13 +111,23 @@
     var downloadsDiv = document.querySelector('#download-buttons');
     axios.get('https://api.github.com/repos/douglasjunior/emage/releases/latest')
       .then(function (response) {
-        downloadsDiv.innerHTML = '';
+        downloadsDiv.innerHTML = '<h3>Download</h3>';
         response.data.assets.forEach(function (asset) {
           var btn = document.createElement('a');
           btn.className = 'btn';
           btn.href = asset.browser_download_url;
           btn.type = asset.content_type;
-          btn.textContent = getAssetLabelByFileName(asset.name);
+
+          var label = document.createElement('strong');
+          label.textContent = getAssetLabelByFileName(asset.name);
+          btn.appendChild(label);
+
+          btn.appendChild(document.createElement('br'));
+
+          var filename = document.createElement('span');
+          filename.textContent = asset.name;
+          btn.appendChild(filename);
+
           downloadsDiv.appendChild(btn);
         });
       })
