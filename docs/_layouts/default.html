@@ -1,74 +1,128 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
+<html lang="{{ site.lang | default: " en-US " }}">
 
-    {% if site.google_analytics %}
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}');
-      </script>
-    {% endif %}
-    <meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
+  <!--  -->
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  <!--  -->
+  {% endif %}
+  <!--  -->
+  {% seo %}
+  <!--  -->
+  <meta property="og:image" content="http://raw.githubusercontent.com/douglasjunior/emage/master/resources/icon.png">
+  <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/douglasjunior/emage/master/resources/icon.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
 
-    {% seo %}
-    
-    <meta property="og:image" content="http://raw.githubusercontent.com/douglasjunior/emage/master/resources/icon.png">
-    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/douglasjunior/emage/master/resources/icon.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="512">
-    <meta property="og:image:height" content="512">
+  <meta property="og:type" content="website">
 
-    <meta property="og:type" content="website">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#157878">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    
-    <style>
-      .page-header {
-          color: #ffffff;
-          text-shadow: 2px 2px 5px #000000;
-          text-align: center;
-          background-color: #ffc107;
-          background-image: linear-gradient(120deg, #ffc107, #ff8507, #ffc107);
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#157878">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+
+  <style>
+    .page-header {
+      color: #ffffff;
+      text-shadow: 2px 2px 5px #000000;
+      text-align: center;
+      background-color: #ffc107;
+      background-image: linear-gradient(120deg, #ffc107, #ff8507, #ffc107);
+    }
+
+    .main-content h1,
+    .main-content h2,
+    .main-content h3,
+    .main-content h4,
+    .main-content h5,
+    .main-content h6 {
+      color: #d25100;
+    }
+  </style>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function getAssetLabelByFileName(fileName) {
+      if (/.exe$/.test(fileName)) {
+        return 'Windows';
       }
-      .main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
-        color: #d25100;
+      if (/.dmg$/.test(fileName)) {
+        return 'Mac OS';
       }
-    </style>
-  </head>
-  <body>
-    <header class="page-header" role="banner">
-      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
-      
-      <p align="center">
-        <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" alt="screenshot" width="100" />
-        <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100" /> 
+      if (/.deb$/.test(fileName)) {
+        return 'Debian / Ubuntu';
+      }
+      if (/.AppImage$/.test(fileName)) {
+        return 'Linux AppImage';
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header class="page-header" role="banner">
+    <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+
+    <p align="center">
+      <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" alt="screenshot" width="100"
+      />
+      <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100"
+      />
       <p/>
-      
+
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
-      
-      {% if site.show_downloads %}
-        <a href="{{ site.github.download_url }}" class="btn">Download</a>
-      {% endif %}
-      
+
+      <div id="download-buttons">
+        Loading download links...
+      </div>
+
       {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
       {% endif %}
-    </header>
+  </header>
 
-    <main id="content" class="main-content" role="main">
-      {{ content }}
+  <main id="content" class="main-content" role="main">
+    {{ content }}
 
-      <footer class="site-footer">
-        {% if site.github.is_project_page %}
-          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
-        {% endif %}
-      </footer>
-    </main>
-  </body>
+    <footer class="site-footer">
+      {% if site.github.is_project_page %}
+      <span class="site-footer-owner">
+        <a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by
+        <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+      {% endif %}
+    </footer>
+  </main>
+
+  <script>
+    var downloadsDiv = document.querySelector('#download-buttons');
+    axios.get('https://api.github.com/repos/douglasjunior/emage/releases/latest')
+      .then(function (response) {
+        downloadsDiv.innerHTML = '';
+        var assets = response.data.assets;
+        var buttons = assets
+          .map(function (asset) {
+            var btn = document.createElement('a');
+            btn.href = asset.browser_download_url;
+            btn.type = asset.content_type;
+            btn.textContent = getAssetLabelByFileName(asset.name);
+            return btn;
+          })
+          .forEach(downloadsDiv.appendChild);
+      })
+      .catch(function (ex) {
+        console.warn(ex);
+        downloadsDiv.textContent = 'Could not load download list.';
+      })
+  </script>
+</body>
+
 </html>
