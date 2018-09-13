@@ -179,10 +179,6 @@ export default class MenuBuilder {
                 label: '&File',
                 submenu: [
                     {
-                        label: '&Open',
-                        accelerator: 'Ctrl+O',
-                    },
-                    {
                         label: '&Close',
                         accelerator: 'Ctrl+W',
                         click: () => {
@@ -236,21 +232,27 @@ export default class MenuBuilder {
                 label: 'Help',
                 submenu: [
                     {
+                        label: 'Website',
+                        click() {
+                            shell.openExternal('https://emage.js.org');
+                        },
+                    },
+                    {
                         label: 'Repository',
                         click() {
                             shell.openExternal('https://github.com/douglasjunior/emage');
                         },
                     },
                     {
-                        label: 'Developer',
-                        click() {
-                            shell.openExternal('https://github.com/douglasjunior');
-                        },
-                    },
-                    {
                         label: 'Search Issues',
                         click() {
                             shell.openExternal('https://github.com/douglasjunior/emage/issues');
+                        },
+                    },
+                    {
+                        label: 'Developer',
+                        click() {
+                            shell.openExternal('https://github.com/douglasjunior');
                         },
                     },
                 ],
