@@ -1,6 +1,8 @@
 theme: jekyll-theme-cayman
 title: E-mage
 
+google_analytics: UA-125751709-1
+
 show_downloads: true
 github:
   download_url: https://github.com/douglasjunior/emage/releases
