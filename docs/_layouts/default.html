@@ -109,15 +109,14 @@
         downloadsDiv.innerHTML = '';
         var assets = response.data.assets;
         var buttons = assets
-          .map(function (asset) {
+          .forEach(function (asset) {
             var btn = document.createElement('a');
             btn.className = 'btn';
             btn.href = asset.browser_download_url;
             btn.type = asset.content_type;
             btn.textContent = getAssetLabelByFileName(asset.name);
-            return btn;
-          })
-          .forEach(downloadsDiv.appendChild);
+            downloadsDiv.appendChild(btn);
+          });
       })
       .catch(function (ex) {
         console.warn(ex);
