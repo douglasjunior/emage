@@ -77,17 +77,17 @@
       />
       <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100"
       />
-      <p/>
+    </p>
 
-      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+    <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
 
-      <div id="download-buttons">
-        Loading download links...
-      </div>
+    <div id="download-buttons">
+      Loading download links...
+    </div>
 
-      {% if site.github.is_project_page %}
-      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-      {% endif %}
+    {% if site.github.is_project_page %}
+    <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+    {% endif %}
   </header>
 
   <main id="content" class="main-content" role="main">
@@ -107,20 +107,23 @@
     axios.get('https://api.github.com/repos/douglasjunior/emage/releases/latest')
       .then(function (response) {
         downloadsDiv.innerHTML = '';
-        var assets = response.data.assets;
-        var buttons = assets
-          .forEach(function (asset) {
-            var btn = document.createElement('a');
-            btn.className = 'btn';
-            btn.href = asset.browser_download_url;
-            btn.type = asset.content_type;
-            btn.textContent = getAssetLabelByFileName(asset.name);
-            downloadsDiv.appendChild(btn);
-          });
+        response.data.assets.forEach(function (asset) {
+          var btn = document.createElement('a');
+          btn.className = 'btn';
+          btn.href = asset.browser_download_url;
+          btn.type = asset.content_type;
+          btn.textContent = getAssetLabelByFileName(asset.name);
+          downloadsDiv.appendChild(btn);
+        });
       })
       .catch(function (ex) {
         console.warn(ex);
-        downloadsDiv.textContent = 'Could not load download list.';
+        downloadsDiv.innerHTML = '';
+        var btn = document.createElement('a');
+        btn.className = 'btn';
+        btn.href = '{{ site.github.download_url }}';
+        btn.textContent = 'Download';
+        downloadsDiv.appendChild(btn);
       })
   </script>
 </body>

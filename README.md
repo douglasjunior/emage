@@ -5,16 +5,18 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" alt="screenshot" width="100" />
 <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/wizard.png" alt="screenshot" width="100" /> 
-<p/>
+</p>
 
 <h1 align="center">E-Mage (Electron + Image Compression + Magic)</h1>
-<p align="center">From developers to developers: a cross-platform tool to help with image compression.<p/>
+<p align="center">
+From developers to developers: a cross-platform tool to help with image compression.
+</p>
 
 </center>
  
 <p align="center">
 <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/screen.png" alt="screenshot" width="500" />
-<p/>
+</p>
 
 <blockquote align="center">
   Inspired by <a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> for Mac and created with  the <a href="https://github.com/imagemin/imagemin" target="_blank">imagemin</a> and their <a href="https://www.npmjs.com/search?q=keywords:imageminplugin" target="_blank">plugins</a>.
