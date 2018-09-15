@@ -2,7 +2,7 @@
     "name": "emage",
     "productName": "E-Mage",
     "version": "1.1.0",
-    "description": "From developers to developers: a cross-platform tool to help with image compression.",
+    "description": "From developers to developers: a cross-platform tool for losslessly image compression.",
     "main": "./main.prod.js",
     "author": {
         "name": "Douglas Nassif Roma Junior",

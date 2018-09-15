@@ -9,7 +9,7 @@
 
 <h1 align="center">E-Mage (Electron + Image Compression + Magic)</h1>
 <p align="center">
-From developers to developers: a cross-platform tool to help with image compression.
+From developers to developers: a cross-platform tool for losslessly image compression.
 </p>
 
 </center>
