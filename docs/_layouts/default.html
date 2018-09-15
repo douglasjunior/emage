@@ -34,10 +34,13 @@
   <style>
     .page-header {
       color: #ffffff;
-      text-shadow: 2px 2px 5px #000000;
       text-align: center;
       background-color: #ffc107;
       background-image: linear-gradient(120deg, #ffc107, #ff8507, #ffc107);
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 5px #000000;
     }
 
     .main-content h1,
@@ -56,6 +59,10 @@
     .btn span {
       font-size: 14px;
       font-weight: normal;
+    }
+
+    #download-buttons {
+      padding-bottom: 8px;
     }
   </style>
 
@@ -80,7 +87,7 @@
 
 <body>
   <header class="page-header" role="banner">
-    <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
+    <h1 class="project-name text-shadow">{{ site.title | default: site.github.repository_name }}</h1>
 
     <p style="text-align: center;">
       <img src="https://raw.githubusercontent.com/douglasjunior/emage/master/screenshot/electron.png" style="width: 100px;vertical-align: top;"
@@ -89,10 +96,18 @@
         alt="screenshot" />
     </p>
 
-    <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+    <h2 class="project-tagline text-shadow">{{ site.description | default: site.github.project_tagline }}</h2>
 
-    <div id="download-buttons">
+    <div id="download-buttons" class="text-shadow">
 
+    </div>
+
+    <div>
+      <a class="github-button" href="https://github.com/douglasjunior/emage" data-icon="octicon-star" data-size="large" data-show-count="true"
+        aria-label="Star douglasjunior/emage on GitHub">Star</a>
+      <a class="github-button" href="https://github.com/douglasjunior/emage/fork" data-icon="octicon-repo-forked" data-size="large"
+        data-show-count="true" aria-label="Fork douglasjunior/emage on GitHub">Fork</a>
+      <a class="github-button" href="https://github.com/douglasjunior" data-size="large" data-show-count="true" aria-label="Follow @douglasjunior on GitHub">Follow @douglasjunior</a>
     </div>
   </header>
 
@@ -142,6 +157,7 @@
         downloadsDiv.appendChild(btn);
       })
   </script>
+  <script src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>
