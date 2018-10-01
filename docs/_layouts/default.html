@@ -64,6 +64,13 @@
     #download-buttons {
       padding-bottom: 8px;
     }
+
+    .fb-share-button {
+      display: inline-block;
+      overflow: hidden;
+      height: 28px;
+      line-height: 28px;
+    }
   </style>
 
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -86,6 +93,17 @@
 </head>
 
 <body>
+  <div id="fb-root"></div>
+  <script>
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
   <header class="page-header" role="banner">
     <h1 class="project-name text-shadow">{{ site.title | default: site.github.repository_name }}</h1>
 
@@ -108,6 +126,11 @@
       <a class="github-button" href="https://github.com/douglasjunior/emage/fork" data-icon="octicon-repo-forked" data-size="large"
         data-show-count="true" aria-label="Fork douglasjunior/emage on GitHub">Fork</a>
       <a class="github-button" href="https://github.com/douglasjunior" data-size="large" data-show-count="true" aria-label="Follow @douglasjunior on GitHub">Follow @douglasjunior</a>
+      <span>
+        <div class="fb-share-button" data-href="{{ site.site_url }}" data-layout="button_count" data-size="large" data-mobile-iframe="false">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ site.site_url }}&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+        </div>
+      </span>
     </div>
   </header>
 
