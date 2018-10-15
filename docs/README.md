@@ -12,9 +12,17 @@ From developers to developers: a cross-platform tool for losslessly image compre
 - SVG: `svgo`.
 - GIF: `giflossy` and `gifsicle`.
 
-## Download
+## On the web
 
-[Download](https://github.com/douglasjunior/emage/releases) to your platform.
+- [Official Electron App ⚛️](https://electronjs.org/apps/e-mage)
+- [Softpedia - Free Downloads Encyclopedia 📖](https://www.softpedia.com/get/Multimedia/Graphic/Graphic-Others/E-Mage.shtml)
+- [Portail francophone d'informatique 🇫🇷](https://www.libellules.ch/dotclear/index.php?post/2018/09/29/E-Mage-optimiseur-du-poids-des-images)
+- [Tout Gratuit Partage 🇫🇷](https://toutgratuitpartage.be/e-mage-win-mac-et-linux-optimise-le-poids-des-images-freeware/)
+- [Ubuntuアプリのいいところ 🇯🇵](https://ubuntuapps.blog.fc2.com/blog-entry-1065.html)
+- [ｋ本的に無料ソフト・フリーソフト 🇯🇵](https://www.gigafree.net/tool/graphiccomp/E-Mage.html)
+- [Programy Za Darmo 🇵🇱](https://programyzadarmo.net.pl/threads/e-mage.36723/)
+- [Бесплатные программы для компьютера на Windows скачать! 🇷🇺](https://zoomexe.net/grafics/drugoe/3651-e-mage.html)
+- [مدونة حاسب سهل &#8211; حاسب سهل مدونة تقنية متخصصة في كل ما يتعلق بعالم الكمبيوتر والإنترنت والهواتف الذكية في شقها المجاني. 🇸🇦](https://www.pcfacile1.com/archives/15331)
 
 ## Contribute
 
