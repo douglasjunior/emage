@@ -24,7 +24,7 @@ From developers to developers: a cross-platform tool for losslessly image compre
 - [ｋ本的に無料ソフト・フリーソフト 🇯🇵](https://www.gigafree.net/tool/graphiccomp/E-Mage.html)
 - [Programy Za Darmo 🇵🇱](https://programyzadarmo.net.pl/threads/e-mage.36723/)
 - [Бесплатные программы для компьютера на Windows скачать! 🇷🇺](https://zoomexe.net/grafics/drugoe/3651-e-mage.html)
-- [مدونة حاسب سهل &#8211; حاسب سهل مدونة تقنية متخصصة في كل ما يتعلق بعالم الكمبيوتر والإنترنت والهواتف الذكية في شقها المجاني. 🇸🇦](https://www.pcfacile1.com/archives/15331)
+- [مدونة حاسب سهل &#8211; حاسب سهل مدونة تقنية متخصصة في كل ما يتعلق بعالم الكمبيوتر والإنترنت والهواتف الذكية في شقها المجاني. 🇲🇦](https://www.pcfacile1.com/archives/15331)
 - [ANITH &#8211; Cyber Land of Anith Gopal 🇶🇦](https://anith.com/e-mage-1-1-0-mit-license/)
 
 ## Contribute
