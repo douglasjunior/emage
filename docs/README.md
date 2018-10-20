@@ -19,6 +19,7 @@ From developers to developers: a cross-platform tool for losslessly image compre
 - [MajorGeeks.Com - MajorGeeks 🇺🇸](https://www.majorgeeks.com/files/details/e_mage.html)
 - [DVB-Cube &lt;&lt;&lt; Das deutsche PC und DVB-Forum &gt;&gt;&gt; 🇩🇪](https://www.dvbcube.org/index.php?topic=7356.msg269611#msg269611)
 - [Portail francophone d'informatique 🇫🇷](https://www.libellules.ch/dotclear/index.php?post/2018/09/29/E-Mage-optimiseur-du-poids-des-images)
+- [01net.com - Actualité High Tech, Tests produits & téléchargements 🇫🇷](https://www.01net.com/telecharger/mac/Utilitaire/fiches/147183.html)
 - [Tout Gratuit Partage 🇫🇷](https://toutgratuitpartage.be/e-mage-win-mac-et-linux-optimise-le-poids-des-images-freeware/)
 - [Ubuntuアプリのいいところ 🇯🇵](https://ubuntuapps.blog.fc2.com/blog-entry-1065.html)
 - [ｋ本的に無料ソフト・フリーソフト 🇯🇵](https://www.gigafree.net/tool/graphiccomp/E-Mage.html)
