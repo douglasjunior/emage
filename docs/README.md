@@ -16,7 +16,7 @@ From developers to developers: a cross-platform tool for losslessly image compre
 
 - [Official Electron App ⚛️](https://electronjs.org/apps/e-mage)
 - [Softpedia - Free Downloads Encyclopedia 📖](https://www.softpedia.com/get/Multimedia/Graphic/Graphic-Others/E-Mage.shtml)
-- [E-mage Alternatives and Similar Software - AlternativeTo.net 📖](https://alternativeto.net/software/e-mage/)
+- [AlternativeTo - Crowdsourced software recommendations 📖](https://alternativeto.net/software/e-mage/)
 - [MajorGeeks.Com - MajorGeeks 🇺🇸](https://www.majorgeeks.com/files/details/e_mage.html)
 - [DVB-Cube &lt;&lt;&lt; Das deutsche PC und DVB-Forum &gt;&gt;&gt; 🇩🇪](https://www.dvbcube.org/index.php?topic=7356.msg269611#msg269611)
 - [Portail francophone d'informatique 🇫🇷](https://www.libellules.ch/dotclear/index.php?post/2018/09/29/E-Mage-optimiseur-du-poids-des-images)
