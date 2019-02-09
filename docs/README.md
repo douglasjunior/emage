@@ -17,6 +17,7 @@ From developers to developers: a cross-platform tool for losslessly image compre
 - [Official Electron App ⚛️](https://electronjs.org/apps/e-mage)
 - [Softpedia - Free Downloads Encyclopedia 📖](https://www.softpedia.com/get/Multimedia/Graphic/Graphic-Others/E-Mage.shtml)
 - [AlternativeTo - Crowdsourced software recommendations 📖](https://alternativeto.net/software/e-mage/)
+- [Make Tech Easier - Computer Tutorials, Tips and Tricks 📖](https://www.maketecheasier.com/software/e-mage/)
 - [MajorGeeks.Com - MajorGeeks 🇺🇸](https://www.majorgeeks.com/files/details/e_mage.html)
 - [DVB-Cube &lt;&lt;&lt; Das deutsche PC und DVB-Forum &gt;&gt;&gt; 🇩🇪](https://www.dvbcube.org/index.php?topic=7356.msg269611#msg269611)
 - [Portail francophone d'informatique 🇫🇷](https://www.libellules.ch/dotclear/index.php?post/2018/09/29/E-Mage-optimiseur-du-poids-des-images)
@@ -28,6 +29,7 @@ From developers to developers: a cross-platform tool for losslessly image compre
 - [Бесплатные программы для компьютера на Windows скачать! 🇷🇺](https://zoomexe.net/grafics/drugoe/3651-e-mage.html)
 - [مدونة حاسب سهل &#8211; حاسب سهل مدونة تقنية متخصصة في كل ما يتعلق بعالم الكمبيوتر والإنترنت والهواتف الذكية في شقها المجاني. 🇲🇦](https://www.pcfacile1.com/archives/15331)
 - [ANITH &#8211; Cyber Land of Anith Gopal 🇶🇦](https://anith.com/e-mage-1-1-0-mit-license/)
+- [Stahuj.cz - Download shareware a freeware (programy zdarma) 🇨🇿](https://www.stahuj.cz/grafika_a_design/prevody_a_optimalizace/e-mage/)
 
 ## Contribute
 
