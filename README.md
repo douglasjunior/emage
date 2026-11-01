@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="docs/cover.svg" alt="E-Mage - Cross-platform lossless image compression desktop app" width="800">
+  <img src="docs/cover.svg" alt="E-Mage - Cross-platform image compression desktop app" width="800">
   <br>
-  <sub>From developers to developers: a cross-platform desktop tool for lossless image compression.</sub>
+  <sub>From developers to developers: a cross-platform desktop tool for lossless and high-fidelity image compression.</sub>
 </p>
 
 <p align="center">
-  <b>E-Mage</b> (Electron + Image Compression + Magic) is a fast, cross-platform desktop application designed to losslessly reduce image file sizes without sacrificing a single pixel. Powered by <a href="https://github.com/imagemin/imagemin">imagemin</a> and 11 battle-tested compression engines, it streamlines batch optimization for developers, designers, and creators across Windows, macOS, and Linux.
+  <b>E-Mage</b> (Electron + Image Compression + Magic) is a fast, cross-platform desktop application designed to optimize image file sizes with lossless and high-fidelity compression. Powered by <a href="https://github.com/imagemin/imagemin">imagemin</a> and 11 battle-tested compression engines, it streamlines batch optimization for developers, designers, and creators across Windows, macOS, and Linux.
 </p>
 
 <p align="center">
@@ -42,26 +42,26 @@
 Get started with **E-Mage** in 3 simple steps:
 
 1. **Download** the latest pre-built executable for your system from [GitHub Releases](https://github.com/douglasjunior/emage/releases):
-   - **Windows**: `E-Mage-Setup-*.exe`
+   - **Windows**: `E-Mage.Setup.*.exe`
    - **macOS**: `E-Mage-*.dmg`
-   - **Linux**: `E-Mage-*.AppImage` or `E-Mage-*.deb`
-2. **Launch the application** and drag & drop images (`.png`, `.jpg`, `.jpeg`, `.svg`, `.gif`) or whole directories into the drop window.
-3. **Watch the savings roll in**: E-Mage runs your selected compression engines asynchronously, updates files losslessly in place, and displays instant before/after byte metrics.
+   - **Linux**: `emage-*-x86_64.AppImage` or `emage_*_amd64.deb`
+2. **Launch the application** and drag & drop images (`.png`, `.jpg`, `.jpeg`, `.svg`, `.gif`) into the drop window.
+3. **Watch the savings roll in**: E-Mage runs your selected compression engines asynchronously, updates files in place, and displays instant before/after byte metrics.
 
 ```text
 raw_photo.png       4.2 MB  ──►  [ optipng + zopfli ]  ──►  1.1 MB  (-74% saved · lossless)
 vector_icon.svg     128 KB  ──►  [ svgo ]              ──►   42 KB  (-67% saved · lossless)
-banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  (-33% saved · lossless)
+banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  (-33% saved · near-lossless, quality 90)
 ```
 
 ---
 
 ## 💡 Why E-Mage?
 
-- 💎 **100% Lossless Quality.** Zero compromise on visual clarity. Strips hidden EXIF metadata, superfluous comments, color profiles, and redundant table chunks while leaving 100% of pixel data intact.
+- 💎 **High-Fidelity Optimization.** Lossless compression for PNG, SVG, and GIF (`gifsicle`), plus lossless (`jpegtran`, `jpegoptim`) and high-quality near-lossless (`mozjpeg` quality 90) engines for JPEG. Strips hidden metadata, comments, and redundant chunks while preserving maximum visual fidelity.
 - ⚡ **Multi-Engine Pipeline.** Combines 11 industry-standard compression engines (`mozjpeg`, `optipng`, `pngcrush`, `pngout`, `zopfli`, `svgo`, `gifsicle`, etc.) into one unified desktop workflow.
-- 🖥️ **True Cross-Platform Desktop App.** While classic tools such as ImageOptim are limited to macOS, E-Mage delivers the same battle-tested lossless compression power across **Windows**, **macOS**, and **Linux**.
-- 📁 **Batch Drag & Drop.** Drop hundreds of images or nested project asset directories at once. E-Mage queues and processes tasks concurrently without freezing the UI.
+- 🖥️ **True Cross-Platform Desktop App.** While classic tools such as ImageOptim are limited to macOS, E-Mage delivers the same battle-tested compression power across **Windows**, **macOS**, and **Linux**.
+- 📁 **Batch Drag & Drop.** Drop multiple images at once (single or bulk upload). E-Mage queues and processes tasks concurrently without freezing the UI.
 - 🎛️ **Granular Engine Selection.** Toggle individual optimization algorithms per format in the options grid to tune compression time versus file size reduction according to your project needs.
 - 📊 **Transparent Statistics.** Monitor individual file savings, total saved megabytes, average reduction percentage, and operation statuses in real time.
 - 🔒 **Completely Offline & Private.** All processing happens locally on your machine. No cloud uploads, no API quotas, and no data leaves your workstation.
@@ -87,16 +87,16 @@ banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  
 
 ## Supported Formats & Engines
 
-<span id="supported-formats--engines"></span><span id="-supported-formats--engines"></span>
+<span id="supported-formats--engines"></span>
 
 E-Mage was inspired by <a href="https://github.com/ImageOptim/ImageOptim">ImageOptim</a> for Mac and built using the powerful <a href="https://github.com/imagemin/imagemin">imagemin</a> ecosystem and its native plugins.
 
 | Format | Compression Engines | Description & Behavior |
 |:---:|:---|:---|
-| **PNG** | `advpng`, `optipng`, `pngcrush`, `pngout`, `zopfli` | Re-compresses DEFLATE streams, removes auxiliary chunks, tests multiple filter methods, and uses Zopfli for maximum compression ratio. |
-| **JPG / JPEG** | `jpegoptim`, `jpegtran`, `mozjpeg` | Re-arranges Huffman tables, optimizes progressive scans, and removes unnecessary markers and EXIF metadata without modifying pixel values. |
+| **PNG** | `advpng`, `optipng`, `pngcrush`, `pngout`, `zopfli` | Re-compresses DEFLATE streams, removes auxiliary chunks, tests multiple filter methods, and uses Zopfli for maximum lossless compression ratio. |
+| **JPG / JPEG** | `jpegoptim`, `jpegtran`, `mozjpeg` | `jpegoptim` and `jpegtran` optimize Huffman tables, progressive scans, and strip EXIF metadata losslessly. `mozjpeg` re-encodes with high-quality near-lossless compression (quality 90). |
 | **SVG** | `svgo` | Cleans up vector XML trees: removes comments, metadata, unused namespaces, and shortens coordinate paths while preserving full vector shape precision. |
-| **GIF** | `gifsicle`, `giflossy` *(macOS/Linux)* | Interlaces frames, optimizes global and local color tables, and strips redundant GIF stream control data. |
+| **GIF** | `gifsicle`, `giflossy` *(macOS / Linux x64)* | `gifsicle` provides lossless frame and color optimization. `giflossy` (available on macOS and Linux x64 only) applies lossy LZW compression for extra byte savings. |
 
 ---
 
@@ -106,10 +106,10 @@ Pre-built binaries are packaged and published for major operating systems on the
 
 | Operating System | Package Type | Architecture | File Extension | Installation Note |
 |:---|:---|:---:|:---:|:---|
-| **Windows** | NSIS Installer | x64 | `.exe` | Run installer and follow prompts |
-| **macOS** | Disk Image | x64 / Universal | `.dmg` | Open `.dmg` and drag `E-Mage` to `/Applications` |
-| **Linux (Debian / Ubuntu)** | Debian Package | x64 | `.deb` | Install via `sudo dpkg -i E-Mage-*.deb` |
-| **Linux (Any distro)** | Portable AppImage | x64 | `.AppImage` | Make executable (`chmod +x`) and run directly |
+| **Windows** | NSIS Installer | x64 | `.exe` | Run installer (`E-Mage.Setup.*.exe`) and follow prompts |
+| **macOS** | Disk Image | x64 | `.dmg` | Open `.dmg` (`E-Mage-*.dmg`) and drag `E-Mage` to `/Applications` |
+| **Linux (Debian / Ubuntu)** | Debian Package | x64 | `.deb` | Install via `sudo dpkg -i emage_*.deb` |
+| **Linux (Any distro)** | Portable AppImage | x64 | `.AppImage` | Make executable (`chmod +x`) and run `emage-*-x86_64.AppImage` directly |
 
 > Official release packages and checksums: **[github.com/douglasjunior/emage/releases](https://github.com/douglasjunior/emage/releases)**  
 > Official project homepage: **[emage.js.org](https://emage.js.org/)**
@@ -118,9 +118,9 @@ Pre-built binaries are packaged and published for major operating systems on the
 
 ## 📖 Usage Guide
 
-### 1. Drag & Drop Files or Folders
+### 1. Drag & Drop Image Files
 
-Drag any supported image files or folders directly into the E-Mage drop area. You can drop files in batches; E-Mage will queue them and execute the optimization pipeline automatically.
+Drag any supported image files directly into the E-Mage drop area. You can drop files individually or in batches; E-Mage will queue them and execute the optimization pipeline automatically.
 
 ### 2. Configure Compression Engines
 
@@ -134,7 +134,7 @@ Use the checkboxes at the top of the interface to choose which algorithms you wa
 The table tracks:
 - **File**: original file name and local path.
 - **Original Size**: initial file weight.
-- **Optimized Size**: new weight after lossless reduction.
+- **Optimized Size**: new weight after reduction.
 - **Saved**: exact byte and megabyte savings, plus the percentage reduction.
 - **Status**: real-time processing indicator, completion confirmation, or error notices.
 
@@ -146,7 +146,7 @@ Want to run from source or build custom packages? Follow the instructions below:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v10+ recommended for this build pipeline)
+- [Node.js](https://nodejs.org/) (legacy toolchain; Node 8 to 10 recommended due to native build dependencies like `node-sass 4.9.3`)
 - [Yarn](https://yarnpkg.com/) package manager
 
 ### 1. Clone & Install Dependencies

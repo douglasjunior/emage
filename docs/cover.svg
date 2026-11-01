@@ -187,7 +187,7 @@
       Cross-platform desktop tool for lossless image compression.
     </text>
     <text x="0" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6d74a6" font-weight="400">
-      Same pristine pixels · Dramatically fewer bytes · Powered by imagemin.
+      High-fidelity optimization · Dramatically fewer bytes · Powered by imagemin.
     </text>
 
     <!-- Supported Format Chips -->
@@ -221,8 +221,8 @@
         <rect width="500" height="54" rx="12" fill="rgba(13, 15, 39, 0.75)" stroke="rgba(139, 123, 255, 0.22)" stroke-width="1.2"/>
         <circle cx="28" cy="27" r="14" fill="rgba(63, 208, 255, 0.15)"/>
         <text x="28" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">💎</text>
-        <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">100% Lossless Compression</text>
-        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Preserves full pixel accuracy while stripping bloat and metadata</text>
+        <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Lossless &amp; High-Fidelity</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Lossless PNG, SVG and GIF plus near-lossless JPEG (mozjpeg 90)</text>
       </g>
 
       <!-- Feature 2 -->
@@ -240,7 +240,7 @@
         <circle cx="28" cy="27" r="14" fill="rgba(88, 224, 138, 0.15)"/>
         <text x="28" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">🖥️</text>
         <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Cross-Platform Desktop</text>
-        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Offline standalone app for macOS (.dmg), Windows (.exe) and Linux (.deb / AppImage)</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Offline app for macOS (.dmg), Windows (.exe) and Linux (.deb)</text>
       </g>
     </g>
   </g>
