@@ -72,7 +72,7 @@ banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="screenshot/screen.png" alt="E-Mage Main Interface - Batch Lossless Compression" width="750">
+  <img src="screenshot/screen.png" alt="E-Mage Main Interface - Batch Image Compression" width="750">
   <br>
   <sub><b>Main Window:</b> Real-time batch compression queue displaying file paths, sizes, savings, and processing status.</sub>
 </p>
@@ -146,7 +146,7 @@ Want to run from source or build custom packages? Follow the instructions below:
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (legacy toolchain; Node 8 to 10 recommended due to native build dependencies like `node-sass 4.9.3`)
+- [Node.js](https://nodejs.org/)
 - [Yarn](https://yarnpkg.com/) package manager
 
 ### 1. Clone & Install Dependencies

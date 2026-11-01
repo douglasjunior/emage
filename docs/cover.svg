@@ -174,7 +174,7 @@
     <g transform="translate(0, 85)">
       <rect width="320" height="32" rx="16" fill="rgba(139, 123, 255, 0.12)" stroke="#8b7bff" stroke-width="1.2"/>
       <circle cx="18" cy="16" r="4" fill="#3fd0ff"/>
-      <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#e9ebfa" letter-spacing="1">ELECTRON · LOSSLESS COMPRESSION</text>
+      <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#e9ebfa" letter-spacing="1">ELECTRON · HIGH-FIDELITY</text>
     </g>
 
     <!-- Main Title -->
@@ -184,7 +184,7 @@
 
     <!-- Subtitle -->
     <text x="0" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#9ba1c7" font-weight="400">
-      Cross-platform desktop tool for lossless image compression.
+      Cross-platform desktop tool for high-fidelity image compression.
     </text>
     <text x="0" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6d74a6" font-weight="400">
       High-fidelity optimization · Dramatically fewer bytes · Powered by imagemin.
@@ -262,7 +262,7 @@
 
     <!-- Window Title -->
     <text x="270" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="600" fill="#9ba1c7" text-anchor="middle">
-      E-Mage — Lossless Image Optimizer
+      E-Mage — High-Fidelity Image Optimizer
     </text>
 
     <!-- Main App Body -->
@@ -315,7 +315,7 @@
         <g class="anim-arrow-pulse">
           <path d="M12 10 L28 22 L12 34 M26 10 L42 22 L26 34" fill="none" stroke="#3fd0ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
         </g>
-        <text x="30" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#9ba1c7" text-anchor="middle" letter-spacing="0.5">LOSSLESS</text>
+        <text x="30" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700" fill="#9ba1c7" text-anchor="middle" letter-spacing="0.5">PIPELINE</text>
       </g>
 
       <!-- After Card -->
@@ -376,8 +376,8 @@
       <!-- Stat 3: Status -->
       <g transform="translate(345, 16)">
         <text x="0" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9ba1c7">INTEGRITY</text>
-        <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#ffd56a">Lossless ✔</text>
-        <text x="0" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6d74a6">0 pixels modified</text>
+        <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#ffd56a">Optimized ✔</text>
+        <text x="0" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6d74a6">high visual fidelity</text>
       </g>
     </g>
   </g>
