@@ -1,0 +1,380 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <!-- Background Cosmic Gradients -->
+    <radialGradient id="nebula-violet" cx="18%" cy="20%" r="65%">
+      <stop offset="0%" stop-color="#5842d6" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula-cyan" cx="82%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#1882be" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nebula-pink" cx="45%" cy="92%" r="55%">
+      <stop offset="0%" stop-color="#be3c78" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#04050d" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="cosmic-stripe" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b7bff"/>
+      <stop offset="35%" stop-color="#3fd0ff"/>
+      <stop offset="70%" stop-color="#ff6a8e"/>
+      <stop offset="100%" stop-color="#ffd56a"/>
+    </linearGradient>
+
+    <linearGradient id="title-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="45%" stop-color="#e9ebfa"/>
+      <stop offset="100%" stop-color="#3fd0ff"/>
+    </linearGradient>
+
+    <linearGradient id="window-border" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b7bff" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#3fd0ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ff6a8e" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <linearGradient id="scan-grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3fd0ff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3fd0ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#8b7bff" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="sky-grad-a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b6cff"/>
+      <stop offset="100%" stop-color="#f9a8d4"/>
+    </linearGradient>
+
+    <linearGradient id="sky-grad-b" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5b6cff"/>
+      <stop offset="100%" stop-color="#f9a8d4"/>
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-violet" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="window-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#000000" flood-opacity="0.65"/>
+    </filter>
+
+    <!-- Clip Paths -->
+    <clipPath id="photo-clip-a">
+      <rect x="0" y="0" width="180" height="114" rx="8"/>
+    </clipPath>
+    <clipPath id="photo-clip-b">
+      <rect x="0" y="0" width="180" height="114" rx="8"/>
+    </clipPath>
+    <clipPath id="window-inner-clip">
+      <rect x="670" y="80" width="530" height="470" rx="16"/>
+    </clipPath>
+
+    <style>
+      <![CDATA[
+      @media (prefers-reduced-motion: no-preference) {
+        .anim-star-twinkle {
+          animation: starTwinkle 4s ease-in-out infinite;
+        }
+        .anim-scanner {
+          animation: scanLaser 4s ease-in-out infinite;
+        }
+        .anim-arrow-pulse {
+          animation: arrowPulse 1.8s ease-in-out infinite;
+        }
+        .anim-badge-pulse {
+          animation: badgePulse 3s ease-in-out infinite;
+        }
+        .anim-glow-subtle {
+          animation: glowSubtle 3.5s ease-in-out infinite;
+        }
+      }
+
+      @keyframes starTwinkle {
+        0%, 100% { opacity: 0.25; transform: scale(0.9); }
+        50% { opacity: 0.85; transform: scale(1.15); }
+      }
+
+      @keyframes scanLaser {
+        0% { transform: translateX(0); opacity: 0; }
+        10% { opacity: 0.9; }
+        60% { transform: translateX(180px); opacity: 0.9; }
+        70%, 100% { transform: translateX(180px); opacity: 0; }
+      }
+
+      @keyframes arrowPulse {
+        0%, 100% { transform: translateX(0); opacity: 0.6; }
+        50% { transform: translateX(5px); opacity: 1; }
+      }
+
+      @keyframes badgePulse {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(88, 224, 138, 0.4)); }
+        50% { transform: scale(1.05); filter: drop-shadow(0 0 10px rgba(88, 224, 138, 0.8)); }
+      }
+
+      @keyframes glowSubtle {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+      }
+      ]]>
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1280" height="640" rx="20" fill="#04050d"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-violet)"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-cyan)"/>
+  <rect width="1280" height="640" rx="20" fill="url(#nebula-pink)"/>
+
+  <!-- Subtle Cosmic Grid -->
+  <g opacity="0.08">
+    <line x1="80" y1="0" x2="80" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="220" y1="0" x2="220" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="380" y1="0" x2="380" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="540" y1="0" x2="540" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="860" y1="0" x2="860" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="1020" y1="0" x2="1020" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="1180" y1="0" x2="1180" y2="640" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="80" x2="1280" y2="80" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1280" y2="200" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="320" x2="1280" y2="320" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="440" x2="1280" y2="440" stroke="#8b7bff" stroke-width="1"/>
+    <line x1="0" y1="560" x2="1280" y2="560" stroke="#8b7bff" stroke-width="1"/>
+  </g>
+
+  <!-- Stars -->
+  <g class="anim-star-twinkle" fill="#ffd56a">
+    <circle cx="130" cy="75" r="1.5" opacity="0.6"/>
+    <circle cx="280" cy="460" r="1.3" opacity="0.5"/>
+    <circle cx="610" cy="95" r="1.8" opacity="0.7"/>
+    <circle cx="650" cy="540" r="1.4" opacity="0.5"/>
+    <circle cx="1220" cy="95" r="1.8" opacity="0.8"/>
+    <circle cx="1160" cy="580" r="1.3" opacity="0.4"/>
+  </g>
+  <g fill="#3fd0ff">
+    <circle cx="95" cy="310" r="1.4" opacity="0.5"/>
+    <circle cx="560" cy="370" r="1.6" opacity="0.6"/>
+    <circle cx="720" cy="65" r="1.3" opacity="0.4"/>
+    <circle cx="1240" cy="370" r="1.5" opacity="0.7"/>
+  </g>
+
+  <!-- Outer Frame & Bottom Stripe -->
+  <rect x="1" y="1" width="1278" height="638" rx="19" fill="none" stroke="rgba(150, 160, 255, 0.16)" stroke-width="2"/>
+  <rect x="0" y="635" width="1280" height="5" fill="url(#cosmic-stripe)"/>
+
+  <!-- ==================== LEFT COLUMN: BRAND & FEATURES ==================== -->
+  <g transform="translate(80, 0)">
+    <!-- Pill: Category -->
+    <g transform="translate(0, 85)">
+      <rect width="320" height="32" rx="16" fill="rgba(139, 123, 255, 0.12)" stroke="#8b7bff" stroke-width="1.2"/>
+      <circle cx="18" cy="16" r="4" fill="#3fd0ff"/>
+      <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#e9ebfa" letter-spacing="1">ELECTRON · LOSSLESS COMPRESSION</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="178" font-family="system-ui, -apple-system, sans-serif" font-size="58" font-weight="900" fill="url(#title-grad)" letter-spacing="-1">
+      E-Mage
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="17" fill="#9ba1c7" font-weight="400">
+      Cross-platform desktop tool for lossless image compression.
+    </text>
+    <text x="0" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6d74a6" font-weight="400">
+      Same pristine pixels · Dramatically fewer bytes · Powered by imagemin.
+    </text>
+
+    <!-- Supported Format Chips -->
+    <g transform="translate(0, 280)">
+      <!-- PNG -->
+      <g transform="translate(0, 0)">
+        <rect width="80" height="32" rx="16" fill="rgba(63, 208, 255, 0.12)" stroke="#3fd0ff" stroke-width="1"/>
+        <text x="40" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#3fd0ff" text-anchor="middle">PNG</text>
+      </g>
+      <!-- JPG -->
+      <g transform="translate(92, 0)">
+        <rect width="80" height="32" rx="16" fill="rgba(255, 106, 142, 0.12)" stroke="#ff6a8e" stroke-width="1"/>
+        <text x="40" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#ff6a8e" text-anchor="middle">JPG</text>
+      </g>
+      <!-- SVG -->
+      <g transform="translate(184, 0)">
+        <rect width="80" height="32" rx="16" fill="rgba(255, 213, 106, 0.12)" stroke="#ffd56a" stroke-width="1"/>
+        <text x="40" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#ffd56a" text-anchor="middle">SVG</text>
+      </g>
+      <!-- GIF -->
+      <g transform="translate(276, 0)">
+        <rect width="80" height="32" rx="16" fill="rgba(139, 123, 255, 0.12)" stroke="#8b7bff" stroke-width="1"/>
+        <text x="40" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#8b7bff" text-anchor="middle">GIF</text>
+      </g>
+    </g>
+
+    <!-- Key Feature Cards -->
+    <g transform="translate(0, 342)">
+      <!-- Feature 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="500" height="54" rx="12" fill="rgba(13, 15, 39, 0.75)" stroke="rgba(139, 123, 255, 0.22)" stroke-width="1.2"/>
+        <circle cx="28" cy="27" r="14" fill="rgba(63, 208, 255, 0.15)"/>
+        <text x="28" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">💎</text>
+        <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">100% Lossless Compression</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Preserves full pixel accuracy while stripping bloat and metadata</text>
+      </g>
+
+      <!-- Feature 2 -->
+      <g transform="translate(0, 66)">
+        <rect width="500" height="54" rx="12" fill="rgba(13, 15, 39, 0.75)" stroke="rgba(139, 123, 255, 0.22)" stroke-width="1.2"/>
+        <circle cx="28" cy="27" r="14" fill="rgba(139, 123, 255, 0.15)"/>
+        <text x="28" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">⚡</text>
+        <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">11 Specialized Engines</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">mozjpeg · optipng · pngcrush · zopfli · svgo · gifsicle and more</text>
+      </g>
+
+      <!-- Feature 3 -->
+      <g transform="translate(0, 132)">
+        <rect width="500" height="54" rx="12" fill="rgba(13, 15, 39, 0.75)" stroke="rgba(139, 123, 255, 0.22)" stroke-width="1.2"/>
+        <circle cx="28" cy="27" r="14" fill="rgba(88, 224, 138, 0.15)"/>
+        <text x="28" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="14" text-anchor="middle">🖥️</text>
+        <text x="54" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Cross-Platform Desktop</text>
+        <text x="54" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#9ba1c7">Offline standalone app for macOS (.dmg), Windows (.exe) and Linux (.deb / AppImage)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- ==================== RIGHT COLUMN: APP WINDOW MOCKUP ==================== -->
+  <g transform="translate(660, 85)" filter="url(#window-shadow)">
+    <!-- Window Frame -->
+    <rect width="540" height="470" rx="16" fill="#0c0e27" stroke="url(#window-border)" stroke-width="1.8"/>
+
+    <!-- Window Titlebar -->
+    <rect width="540" height="42" rx="16" fill="#141738"/>
+    <rect y="32" width="540" height="10" fill="#141738"/>
+    <line x1="0" y1="42" x2="540" y2="42" stroke="rgba(139, 123, 255, 0.2)" stroke-width="1"/>
+
+    <!-- Traffic Lights -->
+    <circle cx="22" cy="21" r="5.5" fill="#ff5f56"/>
+    <circle cx="39" cy="21" r="5.5" fill="#ffbd2e"/>
+    <circle cx="56" cy="21" r="5.5" fill="#27c93f"/>
+
+    <!-- Window Title -->
+    <text x="270" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="12.5" font-weight="600" fill="#9ba1c7" text-anchor="middle">
+      E-Mage — Lossless Image Optimizer
+    </text>
+
+    <!-- Main App Body -->
+    <!-- Top toolbar inside app -->
+    <g transform="translate(24, 56)">
+      <rect width="492" height="36" rx="8" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(139, 123, 255, 0.15)" stroke-width="1"/>
+      <circle cx="20" cy="18" r="4" fill="#58e08a" class="anim-glow-subtle"/>
+      <text x="32" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#e9ebfa">Batch Processing Queue</text>
+      <text x="472" y="22" font-family="ui-monospace, monospace" font-size="11" fill="#3fd0ff" text-anchor="end">4 files · Active</text>
+    </g>
+
+    <!-- Comparison Stage (Before & After) -->
+    <g transform="translate(24, 108)">
+      <!-- Before Card -->
+      <g transform="translate(0, 0)">
+        <rect width="210" height="210" rx="12" fill="rgba(18, 21, 51, 0.85)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.2"/>
+        <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#9ba1c7">BEFORE</text>
+        <text x="194" y="26" font-family="ui-monospace, monospace" font-size="11" fill="#ff6a8e" text-anchor="end">raw.png</text>
+
+        <!-- Image Canvas -->
+        <g transform="translate(15, 38)">
+          <svg width="180" height="114" viewBox="0 0 180 114">
+            <g clip-path="url(#photo-clip-a)">
+              <rect width="180" height="114" fill="url(#sky-grad-a)"/>
+              <circle cx="135" cy="34" r="16" fill="#ffe08a"/>
+              <!-- Mountain Layer 1 -->
+              <path d="M0 114 L0 80 L45 42 L80 75 L115 50 L180 96 L180 114Z" fill="#2b2f6b"/>
+              <!-- Mountain Layer 2 -->
+              <path d="M0 114 L0 98 L56 70 L102 102 L136 82 L180 109 L180 114Z" fill="#181b40"/>
+            </g>
+          </svg>
+          <rect width="180" height="114" rx="8" fill="none" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+
+          <!-- Animated Scanning Laser -->
+          <g class="anim-scanner">
+            <line x1="0" y1="0" x2="0" y2="114" stroke="#3fd0ff" stroke-width="3" filter="url(#glow-cyan)"/>
+            <rect x="-8" y="0" width="16" height="114" fill="url(#scan-grad)"/>
+          </g>
+        </g>
+
+        <!-- Size Pill Before -->
+        <g transform="translate(55, 166)">
+          <rect width="100" height="28" rx="14" fill="rgba(255, 255, 255, 0.06)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+          <text x="50" y="19" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#e9ebfa" text-anchor="middle">4.2 MB</text>
+        </g>
+      </g>
+
+      <!-- Center Transformation Arrow -->
+      <g transform="translate(216, 85)">
+        <g class="anim-arrow-pulse">
+          <path d="M12 10 L28 22 L12 34 M26 10 L42 22 L26 34" fill="none" stroke="#3fd0ff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="30" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#9ba1c7" text-anchor="middle" letter-spacing="0.5">LOSSLESS</text>
+      </g>
+
+      <!-- After Card -->
+      <g transform="translate(282, 0)">
+        <rect width="210" height="210" rx="12" fill="rgba(18, 21, 51, 0.85)" stroke="rgba(88, 224, 138, 0.3)" stroke-width="1.2"/>
+        <text x="16" y="26" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#58e08a">OPTIMIZED</text>
+        <text x="194" y="26" font-family="ui-monospace, monospace" font-size="11" fill="#58e08a" text-anchor="end">saved.png</text>
+
+        <!-- Image Canvas (Identical Pixels!) -->
+        <g transform="translate(15, 38)">
+          <svg width="180" height="114" viewBox="0 0 180 114">
+            <g clip-path="url(#photo-clip-b)">
+              <rect width="180" height="114" fill="url(#sky-grad-b)"/>
+              <circle cx="135" cy="34" r="16" fill="#ffe08a"/>
+              <!-- Mountain Layer 1 -->
+              <path d="M0 114 L0 80 L45 42 L80 75 L115 50 L180 96 L180 114Z" fill="#2b2f6b"/>
+              <!-- Mountain Layer 2 -->
+              <path d="M0 114 L0 98 L56 70 L102 102 L136 82 L180 109 L180 114Z" fill="#181b40"/>
+            </g>
+          </svg>
+          <rect width="180" height="114" rx="8" fill="none" stroke="rgba(88, 224, 138, 0.3)" stroke-width="1"/>
+
+          <!-- Savings Badge floating on top-right -->
+          <g class="anim-badge-pulse" transform="translate(112, 8)">
+            <rect width="60" height="24" rx="12" fill="#04050d" stroke="#58e08a" stroke-width="1.5"/>
+            <text x="30" y="16.5" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800" fill="#58e08a" text-anchor="middle">-74%</text>
+          </g>
+        </g>
+
+        <!-- Size Pill After -->
+        <g transform="translate(55, 166)">
+          <rect width="100" height="28" rx="14" fill="rgba(88, 224, 138, 0.15)" stroke="#58e08a" stroke-width="1.2"/>
+          <text x="50" y="19" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#58e08a" text-anchor="middle">1.1 MB</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Bottom Metrics & Status Bar inside window -->
+    <g transform="translate(24, 336)">
+      <rect width="492" height="96" rx="10" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(139, 123, 255, 0.15)" stroke-width="1"/>
+
+      <!-- Stat 1: Total Saved -->
+      <g transform="translate(20, 16)">
+        <text x="0" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9ba1c7">TOTAL SAVED</text>
+        <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#58e08a">3.1 MB</text>
+        <text x="0" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6d74a6">73.8% reduction</text>
+      </g>
+
+      <!-- Stat 2: Active Engine -->
+      <g transform="translate(180, 16)">
+        <text x="0" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9ba1c7">ENGINES RUN</text>
+        <text x="0" y="38" font-family="ui-monospace, monospace" font-size="17" font-weight="700" fill="#3fd0ff">optipng+zopfli</text>
+        <text x="0" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6d74a6">multi-pass pipeline</text>
+      </g>
+
+      <!-- Stat 3: Status -->
+      <g transform="translate(345, 16)">
+        <text x="0" y="14" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#9ba1c7">INTEGRITY</text>
+        <text x="0" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#ffd56a">Lossless ✔</text>
+        <text x="0" y="58" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6d74a6">0 pixels modified</text>
+      </g>
+    </g>
+  </g>
+</svg>
