@@ -77,12 +77,6 @@ banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  
   <sub><b>Main Window:</b> Real-time batch compression queue displaying file paths, sizes, savings, and processing status.</sub>
 </p>
 
-<p align="center">
-  <img src="screenshot/wizard.png" alt="E-Mage Algorithm Configuration Grid" width="750">
-  <br>
-  <sub><b>Algorithm Selection:</b> Enable or disable specific compression engines for PNG, JPG, SVG, and GIF formats.</sub>
-</p>
-
 ---
 
 ## Supported Formats & Engines
