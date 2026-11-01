@@ -26,7 +26,7 @@
   <a href="#-quick-start"><b>Quick Start</b></a> ·
   <a href="#-why-e-mage">Why</a> ·
   <a href="#-screenshots">Screenshots</a> ·
-  <a href="#-supported-formats--engines">Engines</a> ·
+  <a href="#supported-formats--engines">Engines</a> ·
   <a href="#-downloads--installation">Download</a> ·
   <a href="#-usage-guide">Usage</a> ·
   <a href="#-development--building">Development</a> ·
@@ -85,7 +85,9 @@ banner_scene.jpg    1.8 MB  ──►  [ mozjpeg ]           ──►  1.2 MB  
 
 ---
 
-## 🛠️ Supported Formats & Engines
+## Supported Formats & Engines
+
+<span id="supported-formats--engines"></span><span id="-supported-formats--engines"></span>
 
 E-Mage was inspired by <a href="https://github.com/ImageOptim/ImageOptim">ImageOptim</a> for Mac and built using the powerful <a href="https://github.com/imagemin/imagemin">imagemin</a> ecosystem and its native plugins.
 
@@ -233,11 +235,7 @@ Contributions, bug reports, and suggestions are warmly welcome!
    git checkout -b feature/my-new-feature
    ```
 2. Make your improvements, ensuring code conforms to the project's ESLint configuration (`yarn lint`).
-3. Commit using [Conventional Commits](https://www.conventionalcommits.org/):
-   ```bash
-   git commit -m "feat: add support for avif compression"
-   ```
-4. Push your branch and submit a Pull Request.
+3. Push your branch and submit a Pull Request.
 
 For questions, issues, or feature requests, feel free to open a [GitHub Issue](https://github.com/douglasjunior/emage/issues).
 

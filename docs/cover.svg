@@ -87,6 +87,8 @@
         }
         .anim-badge-pulse {
           animation: badgePulse 3s ease-in-out infinite;
+          transform-box: fill-box;
+          transform-origin: center;
         }
         .anim-glow-subtle {
           animation: glowSubtle 3.5s ease-in-out infinite;
@@ -94,8 +96,8 @@
       }
 
       @keyframes starTwinkle {
-        0%, 100% { opacity: 0.25; transform: scale(0.9); }
-        50% { opacity: 0.85; transform: scale(1.15); }
+        0%, 100% { opacity: 0.25; }
+        50% { opacity: 0.85; }
       }
 
       @keyframes scanLaser {
@@ -337,9 +339,11 @@
           <rect width="180" height="114" rx="8" fill="none" stroke="rgba(88, 224, 138, 0.3)" stroke-width="1"/>
 
           <!-- Savings Badge floating on top-right -->
-          <g class="anim-badge-pulse" transform="translate(112, 8)">
-            <rect width="60" height="24" rx="12" fill="#04050d" stroke="#58e08a" stroke-width="1.5"/>
-            <text x="30" y="16.5" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800" fill="#58e08a" text-anchor="middle">-74%</text>
+          <g transform="translate(112, 8)">
+            <g class="anim-badge-pulse">
+              <rect width="60" height="24" rx="12" fill="#04050d" stroke="#58e08a" stroke-width="1.5"/>
+              <text x="30" y="16.5" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800" fill="#58e08a" text-anchor="middle">-74%</text>
+            </g>
           </g>
         </g>
 
